@@ -20,11 +20,15 @@ function calculate() {
     // ==========================================
     // Todo: Perform conversion calculations here
 
+    var lbsToKg = weight * 0.454;
+    var inchToMeter = height * 0.0254;
+    var inchToCm = height * 2.54;
+
     // -------------------------------
     // Body Surface Area (BSA)
     // -------------------------------
 
-    var BSA = 0;
+    var BSA = Math.sqrt((inchToCm * lbsToKg)/3600);
 
     // ==========================================
     // Todo: Perform BSA calculation here
@@ -40,6 +44,8 @@ function calculate() {
         // ==========================================
         // Todo: Perform female IBW calculation here
 
+        IBW = 45.5 + 2.3* (height-60);
+
 
     } else if ( male ) {
 
@@ -48,15 +54,16 @@ function calculate() {
 
     }
 
+    IBW = 50 + 2.3 * (height-60);
+
     // -------------------------------
     // Body Mass Index (BMI)
     // -------------------------------
 
-    var BMI = 0;
+    var BMI = lbsToKg/ (inchToMeter*inchToMeter);
 
     // ==========================================
     // Todo: Perform BMI calculation here
-
 
 
     // Do not modify this function call
